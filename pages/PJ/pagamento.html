@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página de Pagamento</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .navbar {
+        height: 80px;
+      }
+      .navbar-brand img {
+        height: 40px;
+      }
+      .payment-section {
+        margin-bottom: 1.5rem;
+      }
+      .payment-option {
+        margin-bottom: 1rem;
+      }
+      .btn-group {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"
+          ><img src="../Logo_Farmtech.png" alt="LogotipoFarmtech"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="./catalogo.html">Catálogo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./meu_perfil.html">Meu Perfil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./meus_pedidos.html">Meus Pedidos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./meu_carrinho.html">Meu Carrinho</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Sair</a>
+            </li>
+          </ul>
+          <div class="user-info ms-auto">
+            <span>Bem-vindo a Farmtech!</span>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/System-users.svg/1024px-System-users.svg.png"
+              alt="Profile"
+              class="rounded-circle"
+              width="40"
+            />
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-4">
+      <form id="paymentForm" class="row">
+        <div class="col-md-6">
+          <div class="payment-section">
+            <h3>Resumo do Pedido</h3>
+            <div class="mb-3">
+              <label for="itens" class="form-label">Itens</label>
+              <input
+                type="text"
+                class="form-control"
+                id="itens"
+                value="Banana(20), Laranja(20), Tomate(20), Alho(20), Abobrinha(20)"
+                disabled
+              />
+            </div>
+            <div class="d-none mb-3">
+              <label for="quantidade" class="form-label">Quantidade</label>
+              <input
+                type="text"
+                class="form-control"
+                id="quantidade"
+                value="2"
+                disabled
+              />
+            </div>
+            <div class="mb-3">
+              <label for="subtotal" class="form-label">Subtotal</label>
+              <input
+                type="text"
+                class="form-control"
+                id="subtotal"
+                value="R$ 1800,00"
+                disabled
+              />
+            </div>
+            <div class="mb-3">
+              <label for="desconto" class="form-label">Desconto PJ (20%)</label>
+              <input
+                type="text"
+                class="form-control"
+                id="desconto"
+                value="R$ 360,00"
+                disabled
+              />
+            </div>
+            <div class="mb-3">
+              <label for="total" class="form-label">Total</label>
+              <input
+                type="text"
+                class="form-control"
+                id="total"
+                value="R$ 1440,00"
+                disabled
+              />
+            </div>
+          </div>
+
+          <div class="payment-section">
+            <h3>Entrega</h3>
+            <div class="mb-3">
+              <label for="endereco" class="form-label"
+                >Endereço de Entrega</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="endereco"
+                value="Rua das Flores, 123, Vila Maria, São Paulo - SP"
+                disabled
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label"
+                >Forma de Recebimento da Nota Fiscal</label
+              >
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="notaFiscal"
+                  id="email"
+                  value="email"
+                  checked
+                />
+                <label class="form-check-label" for="email"> E-mail </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="notaFiscal"
+                  id="sms"
+                  value="sms"
+                />
+                <label class="form-check-label" for="sms">
+                  SMS (Telefone)
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="payment-section">
+            <h3>Pagamento</h3>
+            <div class="payment-option">
+              <label class="form-label">Forma de Pagamento</label>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="pagamento"
+                      id="credito"
+                      value="credito"
+                      checked
+                    />
+                    <label class="form-check-label" for="credito">
+                      Crédito
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="pagamento"
+                      id="debito"
+                      value="debito"
+                    />
+                    <label class="form-check-label" for="debito">
+                      Débito
+                    </label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="pagamento"
+                      id="boleto"
+                      value="boleto"
+                    />
+                    <label class="form-check-label" for="boleto">
+                      Boleto
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="pagamento"
+                      id="pix"
+                      value="pix"
+                    />
+                    <label class="form-check-label" for="pix"> PIX </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Campos para Crédito -->
+            <div id="creditoFields" class="d-block">
+              <div class="mb-3 mt-3">
+                <label for="numCartaoCredito" class="form-label"
+                  >Número do Cartão</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="numCartaoCredito"
+                  placeholder="Digite o número do cartão"
+                  required
+                  maxlength="19"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="nomeCartaoCredito" class="form-label"
+                  >Nome Impresso no Cartão</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nomeCartaoCredito"
+                  placeholder="Digite o nome impresso no cartão"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="cpfTitularCredito" class="form-label"
+                  >CPF/CNPJ do Titular</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cpfTitularCredito"
+                  placeholder="Digite o CPF/CNPJ do titular"
+                  required
+                  maxlength="18"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="validadeCredito" class="form-label"
+                  >Validade do cartão</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validadeCredito"
+                  placeholder="MM/AAAA"
+                  required
+                  maxlength="7"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="codigoSegurancaCredito" class="form-label"
+                  >Código de Segurança</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="codigoSegurancaCredito"
+                  placeholder="Digite o código de segurança"
+                  required
+                  maxlength="3"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="parcelas" class="form-label">Parcelas</label>
+                <select class="form-select" id="parcelas" required>
+                  <option value="1">1x (R$1.440,00)</option>
+                  <option value="2">2x (R$720,00)</option>
+                  <option value="3">3x (R$480,00)</option>
+                  <option value="4">4x (R$360,00)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Campos para Débito -->
+            <div id="debitoFields" class="d-none">
+              <div class="mb-3">
+                <label for="numCartaoDebito" class="form-label"
+                  >Número do Cartão</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="numCartaoDebito"
+                  placeholder="Digite o número do cartão"
+                  required
+                  maxlength="16"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="nomeCartaoDebito" class="form-label"
+                  >Nome Impresso no Cartão</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nomeCartaoDebito"
+                  placeholder="Digite o nome impresso no cartão"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="cpfTitularDebito" class="form-label"
+                  >CPF/CNPJ do Titular</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cpfTitularDebito"
+                  placeholder="Digite o CPF/CNPJ do titular"
+                  required
+                  maxlength="18"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="validadeDebito" class="form-label"
+                  >Validade do cartão</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validadeDebito"
+                  placeholder="MM/AAAA"
+                  required
+                  maxlength="7"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="codigoSegurancaDebito" class="form-label"
+                  >Código de Segurança</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="codigoSegurancaDebito"
+                  placeholder="Digite o código de segurança"
+                  required
+                  maxlength="3"
+                />
+              </div>
+            </div>
+
+            <!-- Botões -->
+            <div class="btn-group mt-4">
+              <button type="button" class="btn btn-danger" id="cancelar">
+                Cancelar Compra
+              </button>
+              <button type="submit" class="btn btn-success" id="concluir">
+                Concluir Compra
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript para máscaras -->
+    <script>
+      function aplicarMascaraCPFouCNPJ(valor) {
+        valor = valor.replace(/\D/g, "");
+        if (valor.length <= 11) {
+          valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+          valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+          valor = valor.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+        } else {
+          valor = valor.replace(/^(\d{2})(\d)/, "$1.$2");
+          valor = valor.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3");
+          valor = valor.replace(/\.(\d{3})(\d)/, ".$1/$2");
+          valor = valor.replace(/(\d{4})(\d{1,2})$/, "$1-$2");
+        }
+        return valor;
+      }
+      function aplicarMascaraCartao(valor) {
+        return valor
+          .replace(/\D/g, "") // Remove todos os caracteres que não são dígitos
+          .replace(/(\d{4})(?=\d)/g, "$1 ") // Insere espaço a cada 4 dígitos
+          .trim(); // Remove espaços em branco no início e no fim
+      }
+
+      function aplicarMascaraValidade(valor) {
+        return valor.replace(/^(\d{2})(\d{1,4})$/, "$1/$2");
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Aplicando máscaras nos campos de CPF/CNPJ e cartão
+        const cpfTitularCredito = document.getElementById("cpfTitularCredito");
+        const numCartaoCredito = document.getElementById("numCartaoCredito");
+        const validadeCredito = document.getElementById("validadeCredito");
+
+        const cpfTitularDebito = document.getElementById("cpfTitularDebito");
+        const numCartaoDebito = document.getElementById("numCartaoDebito");
+        const validadeDebito = document.getElementById("validadeDebito");
+
+        cpfTitularCredito.addEventListener("input", function (e) {
+          e.target.value = aplicarMascaraCPFouCNPJ(e.target.value);
+        });
+
+        numCartaoCredito.addEventListener("input", function (e) {
+          e.target.value = aplicarMascaraCartao(e.target.value);
+        });
+
+        validadeCredito.addEventListener("input", function (e) {
+          e.target.value = aplicarMascaraValidade(e.target.value);
+        });
+
+        cpfTitularDebito.addEventListener("input", function (e) {
+          e.target.value = aplicarMascaraCPFouCNPJ(e.target.value);
+        });
+
+        numCartaoDebito.addEventListener("input", function (e) {
+          e.target.value = aplicarMascaraCartao(e.target.value);
+        });
+
+        validadeDebito.addEventListener("input", function (e) {
+          e.target.value = aplicarMascaraValidade(e.target.value);
+        });
+
+        // Lógica para exibir/ocultar campos com base na forma de pagamento
+        const creditoFields = document.getElementById("creditoFields");
+        const debitoFields = document.getElementById("debitoFields");
+
+        document
+          .querySelectorAll('input[name="pagamento"]')
+          .forEach((radio) => {
+            radio.addEventListener("change", function () {
+              if (this.value === "credito") {
+                creditoFields.classList.remove("d-none");
+                creditoFields.classList.add("d-block");
+                debitoFields.classList.remove("d-block");
+                debitoFields.classList.add("d-none");
+              } else if (this.value === "debito") {
+                debitoFields.classList.remove("d-none");
+                debitoFields.classList.add("d-block");
+                creditoFields.classList.remove("d-block");
+                creditoFields.classList.add("d-none");
+              } else {
+                creditoFields.classList.add("d-none");
+                debitoFields.classList.add("d-none");
+              }
+            });
+          });
+
+        // Botão de cancelar compra
+        const cancelarButton = document.getElementById("cancelar");
+        cancelarButton.addEventListener("click", function () {
+          if (confirm("Deseja cancelar a compra?")) {
+            window.location.href = "./catalogo.html";
+          }
+        });
+
+        // Botão de concluir compra
+        const paymentForm = document.getElementById("paymentForm");
+        paymentForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Compra realizada com sucesso!");
+          window.location.href = "./compra_realizada.html";
+        });
+      });
+      // Adiciona um evento de mudança aos campos de pagamento
+      document.querySelectorAll('input[name="pagamento"]').forEach((radio) => {
+        radio.addEventListener("change", (event) => {
+          const selectedPayment = event.target.value;
+
+          // Oculta todos os campos
+          document.querySelectorAll(".payment-section > div").forEach((div) => {
+            div.classList.add("alterarRequired");
+            // Remove o atributo required de todos os campos
+            const inputs = div.querySelectorAll("input");
+            inputs.forEach((input) => {
+              input.removeAttribute("required");
+            });
+          });
+
+          // Exibe os campos relevantes com o atributo required
+          if (selectedPayment === "credito") {
+            document
+              .getElementById("creditoFields")
+              .classList.remove("alterarRequired");
+            document
+              .getElementById("numCartaoCredito")
+              .setAttribute("required", "true");
+            document
+              .getElementById("nomeCartaoCredito")
+              .setAttribute("required", "true");
+            document
+              .getElementById("cpfTitularCredito")
+              .setAttribute("required", "true");
+            document
+              .getElementById("validadeCredito")
+              .setAttribute("required", "true");
+            document
+              .getElementById("codigoSegurancaCredito")
+              .setAttribute("required", "true");
+          } else if (selectedPayment === "debito") {
+            document
+              .getElementById("debitoFields")
+              .classList.remove("alterarRequired");
+            document
+              .getElementById("numCartaoDebito")
+              .setAttribute("required", "true");
+            document
+              .getElementById("nomeCartaoDebito")
+              .setAttribute("required", "true");
+            document
+              .getElementById("cpfTitularDebito")
+              .setAttribute("required", "true");
+            document
+              .getElementById("validadeDebito")
+              .setAttribute("required", "true");
+            document
+              .getElementById("codigoSegurancaDebito")
+              .setAttribute("required", "true");
+          } else if (selectedPayment === "boleto") {
+            document
+              .getElementById("boletoFields")
+              .classList.remove("alterarRequired");
+          } else if (selectedPayment === "pix") {
+            document
+              .getElementById("pixFields")
+              .classList.remove("alterarRequired");
+          }
+        });
+      });
+
+      // Dispara a mudança inicial para definir os campos de pagamento corretos
+      document
+        .querySelector('input[name="pagamento"]:checked')
+        .dispatchEvent(new Event("change"));
+    </script>
+  </body>
+</html>
